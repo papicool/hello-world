@@ -33,9 +33,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run: "mkdir -p /tmp/workspace"
       - run:
           name: "save hello world output"
-          command: "mkdir -p /tmp/workspace"
           command: "echo Hello, world! > /tmp/workspace/output.txt"
       # Persist the specified paths (workspace/echo-output) into the workspace for use in downstream job.
       - persist_to_workspace:
