@@ -28,7 +28,7 @@ jobs:
       #- checkout
       - run:
           name: "Say World"
-          command: "echo World!"
+          command: "echo world $MY_FULL_NAME !"
           
 
 # Invoke jobs via workflows
