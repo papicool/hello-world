@@ -39,4 +39,4 @@ workflows:
       - say-hello
       - say-world
           requires:
-            - print_hello
+            - say_hello
