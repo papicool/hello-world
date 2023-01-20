@@ -34,9 +34,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: "mkdir -p /tmp/workspace"
-      - run:
-          name: "save hello world output"
-          command: "echo Hello, world! > /tmp/workspace/output.txt"
+      - run: echo "Hello, world!" > /tmp/workspace/output.txt
       # Persist the specified paths (workspace/echo-output) into the workspace for use in downstream job.
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is
@@ -55,6 +53,7 @@ jobs:
       - run: |
           if [[ `cat /tmp/workspace/output.txt` == "Hello, world!" ]]; then
             echo "It worked!";
+            cat /tmp/workspace/output.txt;
           else
             echo "Nope!"; exit 1
           fi
